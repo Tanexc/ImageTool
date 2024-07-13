@@ -7,6 +7,24 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+
+    id("maven-publish")
+}
+
+group = "com.tanexc.imagetool"
+version = "0.0.1"
+
+publishing {
+    repositories {
+        maven {
+            name = "ImageTool"
+            url = uri("https://maven.pkg.github.com/tanexc/imagetool")
+            credentials {
+                username = project.findProperty("gpr.user") as String
+                password = project.findProperty("gpr.key") as String
+            }
+        }
+    }
 }
 
 kotlin {

@@ -14,25 +14,14 @@ plugins {
 group = "com.tanexc.imagetool"
 version = "0.0.1"
 
-publishing {
-    repositories {
-        maven {
-            name = "ImageTool"
-            url = uri("https://maven.pkg.github.com/tanexc/imagetool")
-            credentials {
-                username = project.findProperty("gpr.user") as String
-                password = project.findProperty("gpr.key") as String
-            }
-        }
-    }
-}
-
 kotlin {
     androidTarget {
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_1_8)
         }
+
+        publishAllLibraryVariants()
     }
     
     listOf(
@@ -93,3 +82,12 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
+
+publishing {
+    publications {
+        create<MavenPublication>("imageTool") {
+            artifactId = "imagetool"
+        }
+    }
+}
+

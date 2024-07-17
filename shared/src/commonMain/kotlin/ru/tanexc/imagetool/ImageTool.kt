@@ -6,12 +6,18 @@ import io.ktor.client.call.body
 import io.ktor.client.plugins.onDownload
 import io.ktor.client.request.get
 
-/**
- * ImageTool used in widgets to access loading and caching feature
+/**ImageTool used in widgets to access loading and caching feature
  */
 internal class ImageTool {
     private val httpClient = HttpClient()
 
+
+    /** @return [androidx.compose.ui.graphics.ImageBitmap]
+     *
+     * @param url URL to image in network
+     * @param cacheQuality there you can pass values from [CacheQuality]
+     * @param collector this value can be used to collect state of loading image by getting received part and total size
+     */
     suspend fun loadImage(
         url: String,
         cacheQuality: CacheQuality = CacheQuality.NoCompressing,

@@ -1,4 +1,4 @@
-package ru.tanexc.imagetool
+package com.tanexc.imagetool
 
 /**
  * CacheQuality represents cache quality option

@@ -1,4 +1,4 @@
-package ru.tanexc.imagetool
+package com.tanexc.imagetool
 
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.toComposeImageBitmap
@@ -14,9 +14,7 @@ import platform.Foundation.NSData
 import platform.Foundation.NSTemporaryDirectory
 import platform.Foundation.NSURL
 import platform.Foundation.create
-import platform.Foundation.dataWithContentsOfFile
 import platform.Foundation.dataWithContentsOfURL
-import platform.Foundation.writeToFile
 import platform.Foundation.writeToURL
 import platform.posix.memcpy
 

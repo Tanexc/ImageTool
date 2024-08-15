@@ -1,4 +1,4 @@
-package ru.tanexc.imagetool
+package com.tanexc.imagetool
 
 internal object ImageToolFactory {
     private lateinit var imageTool: ImageTool

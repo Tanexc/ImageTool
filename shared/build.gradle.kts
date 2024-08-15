@@ -7,12 +7,11 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
-
     id("maven-publish")
 }
 
-group = "com.tanexc.imagetool"
-version = "0.0.1"
+group = "com.tanexc"
+version = "0.0.1-alpha02"
 
 kotlin {
     androidTarget {
@@ -21,9 +20,9 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_1_8)
         }
 
-        publishAllLibraryVariants()
+        publishLibraryVariants("release", "debug")
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -72,7 +71,7 @@ kotlin {
 }
 
 android {
-    namespace = "ru.tanexc.imagetool"
+    namespace = "com.tanexc.imagetool"
     compileSdk = 34
     defaultConfig {
         minSdk = 24
@@ -85,9 +84,11 @@ android {
 
 publishing {
     publications {
-        create<MavenPublication>("imageTool") {
+        create<MavenPublication>("maven") {
+            groupId = "com.tanexc"
             artifactId = "imagetool"
+            version = "0.0.1-alpha01"
+            from(components["kotlin"])
         }
     }
 }
-

@@ -1,4 +1,4 @@
-package ru.tanexc.imagetool
+package com.tanexc.imagetool
 
 import androidx.compose.ui.graphics.ImageBitmap
 import io.ktor.client.HttpClient

@@ -1,4 +1,4 @@
-package ru.tanexc.imagetool.widgets
+package com.tanexc.imagetool.widgets
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -20,10 +20,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.launch
-import ru.tanexc.imagetool.CacheQuality
-import ru.tanexc.imagetool.ImageState
-import ru.tanexc.imagetool.ImageTool
-import ru.tanexc.imagetool.ImageToolFactory
+import com.tanexc.imagetool.CacheQuality
+import com.tanexc.imagetool.ImageState
+import com.tanexc.imagetool.ImageTool
+import com.tanexc.imagetool.ImageToolFactory
 
 @Composable
 fun ComposeImage(

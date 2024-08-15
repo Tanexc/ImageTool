@@ -1,4 +1,4 @@
-package ru.tanexc.imagetool
+package com.tanexc.imagetool
 
 import android.content.Context
 import android.graphics.Bitmap.CompressFormat

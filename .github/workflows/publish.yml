@@ -1,6 +1,6 @@
 name: Publish Artifacts
 on:
-  workflow_dispatch:
+  release:
 jobs:
   build:
     name: Build

@@ -83,7 +83,7 @@ At this moment available just one widget to use:
 
 # In future
 <ul>
-  <li>Use custom byteArray as model for image</li>
+  <li>Add more type to use as model for image</li>
   <li>Add more target platfroms</li>
 </ul>
 

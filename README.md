@@ -4,8 +4,6 @@
 # Implementation
 ![GitHub Release](https://img.shields.io/github/v/release/tanexc/imageTool?sort=date&style=flat-square&label=version)
 
-
-
 For `Kotlin DSL`
 ``` Kotlin
   implemetation("io.github.tanexc:imagetool:[version]")

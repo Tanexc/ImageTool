@@ -1,7 +1,7 @@
 name: Publish Artifacts
 on:
   release:
-    types: [published]
+    types: [created]
 jobs:
   build:
     name: Build

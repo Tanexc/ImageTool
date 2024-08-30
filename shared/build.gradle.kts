@@ -1,3 +1,4 @@
+import com.vanniktech.maven.publish.SonatypeHost
 import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -8,10 +9,13 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
     id("maven-publish")
+    id("org.jreleaser") version "1.13.1"
+    id("com.vanniktech.maven.publish") version "0.28.0"
+
 }
 
-group = "com.tanexc"
-version = "0.0.1-alpha02"
+group = "io.github.tanexc"
+version = "0.0.1-alpha01"
 
 kotlin {
     androidTarget {
@@ -29,7 +33,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "shared"
+            baseName = "imagetool"
             isStatic = true
         }
     }
@@ -71,7 +75,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.tanexc.imagetool"
+    namespace = "io.github.tanexc"
     compileSdk = 34
     defaultConfig {
         minSdk = 24
@@ -82,13 +86,41 @@ android {
     }
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            groupId = "com.tanexc"
-            artifactId = "imagetool"
-            version = "0.0.1-alpha01"
-            from(components["kotlin"])
+
+mavenPublishing {
+    coordinates(
+        groupId = "io.github.tanexc",
+        artifactId = "imagetool",
+        version = "0.0.1-alpha01"
+    )
+
+    pom {
+        name.set("ImageTool KMM library")
+        description.set("KMM Library for loading image using Compose Multiplatform")
+        inceptionYear.set("2024")
+        url.set("https://github.com/tanexc/ImageTool")
+
+        licenses {
+            license {
+                name.set("MIT")
+                url.set("https://opensource.org/licenses/MIT")
+            }
+        }
+
+        developers {
+            developer {
+                id.set("tanexc")
+                name.set("Arthur")
+                email.set("artur.231456@gmail.com")
+            }
+        }
+
+        scm {
+            url.set("https://github.com/tanexc/ImageTool")
         }
     }
+
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+
+    signAllPublications()
 }

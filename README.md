@@ -101,7 +101,7 @@ Contact me here:
 
 <a href="https://t.me/tanexc"><img src="https://img.shields.io/static/v1?style=for-the-badge&message=Telegram&color=26A5E4&logo=Telegram&logoColor=FFFFFF&label="/></a> 
 <a href="https://wa.me/qr/FR6RE7QOKFS6A1"><img src="https://img.shields.io/badge/Whatsapp-green?logo=whatsapp&logoColor=white&style=for-the-badge"/></a>
-<a><img src="https://img.shields.io/badge/VKontakte-lightblue?style=for-the-badge&logo=vk&color=0f93ff&link=https%3A%2F%2Fvk.com%2Ftanexc"/></a>
+<a href="https://vk.com/tanexc"><img src="https://img.shields.io/badge/VKontakte-lightblue?style=for-the-badge&logo=vk&color=0f93ff&link=https%3A%2F%2Fvk.com%2Ftanexc"/></a>
 
 
 # Find this repository useful? :heart:

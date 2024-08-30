@@ -1,5 +1,10 @@
 # 🖼️ ImageTool
-<p align="center"> <b>ImageTool</b> is a Kotlin multiplatform library that provides the ability to download and cache images from network, storage and etc.</p>
+<p align="center"> <b>ImageTool</b> is a Kotlin multiplatform library that provides the ability to download and cache images from network, storage and etc. Now library available on Android and IOS platforms</p>
+
+<div align="center">
+  <a><img src="https://img.shields.io/badge/Android-green?style=for-the-badge&logo=android&logoColor=white&color=00a500"></a>
+  <a><img src="https://img.shields.io/badge/Ios-purple?style=for-the-badge&logo=apple&color=a586cc"></a>
+</div>
 
 # Implementation
 ![GitHub Release](https://img.shields.io/github/v/release/tanexc/imageTool?sort=date&style=flat-square&label=version)
@@ -8,12 +13,15 @@ For `Kotlin DSL`
 ``` Kotlin
   implemetation("io.github.tanexc:imagetool:[version]")
 ```
+
 For `Groovy DSL`
 ``` Kotlin
   implemetation "io.github.tanexc:imagetool:[version]"
 ```
 
 For `libs.version.toml`
+
+Add ```implementation(libs.imagetool)``` to build.gradle.kts and
 ``` toml
 
   [versions]

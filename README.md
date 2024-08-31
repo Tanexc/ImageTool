@@ -96,6 +96,8 @@ At this moment available just one widget to use:
 
 - [Ktor](https://github.com/square/retrofit) for work with network
 
+- [Gradle Maven publish plugin by vanniktech](https://github.com/vanniktech/gradle-maven-publish-plugin) is the amazing plugin for easy publishing to maven central
+
 # Have suggestions or questions?
 Contact me here:
 

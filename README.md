@@ -9,17 +9,17 @@
 # Implementation
 ![GitHub Release](https://img.shields.io/github/v/release/tanexc/imageTool?sort=date&style=flat-square&label=version)
 
-For `Kotlin DSL`
+For `Kotlin DSL` :
 ``` Kotlin
-  implemetation("io.github.tanexc:imagetool:[version]")
+  implementation("io.github.tanexc:imagetool:[version]")
 ```
 
-For `Groovy DSL`
+For `Groovy DSL` :
 ``` Kotlin
-  implemetation "io.github.tanexc:imagetool:[version]"
+  implementation "io.github.tanexc:imagetool:[version]"
 ```
 
-For `libs.version.toml`
+For `libs.version.toml` :
 
 Add ```implementation(libs.imagetool)``` to build.gradle.kts and
 ``` toml

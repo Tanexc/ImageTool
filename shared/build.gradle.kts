@@ -89,9 +89,9 @@ android {
 
 mavenPublishing {
     coordinates(
-        groupId = group.toString(),
+        groupId = "io.github.tanexc",
         artifactId = "imagetool",
-        version = version.toString()
+        version = "0.0.1-alpha02"
     )
 
     pom {

@@ -33,7 +33,7 @@ internal class ImageTool {
             }
             data = response.body<ByteArray>()
             if (cacheQuality != CacheQuality.NoCaching) {
-                saveToCache(data, url, cacheQualityToInt(cacheQuality))
+                saveToCache(data, url, cacheQuality.value)
             }
             return data.toImageBitmap()
         }

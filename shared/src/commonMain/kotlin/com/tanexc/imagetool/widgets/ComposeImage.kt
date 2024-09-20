@@ -15,15 +15,15 @@ import androidx.compose.ui.graphics.DefaultAlpha
 import androidx.compose.ui.graphics.FilterQuality
 import androidx.compose.ui.graphics.drawscope.DrawScope.Companion.DefaultFilterQuality
 import androidx.compose.ui.layout.ContentScale
+import com.tanexc.imagetool.CacheQuality
+import com.tanexc.imagetool.ImageState
+import com.tanexc.imagetool.ImageTool
+import com.tanexc.imagetool.ImageToolFactory
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.launch
-import com.tanexc.imagetool.CacheQuality
-import com.tanexc.imagetool.ImageState
-import com.tanexc.imagetool.ImageTool
-import com.tanexc.imagetool.ImageToolFactory
 
 @Composable
 fun ComposeImage(
@@ -36,34 +36,36 @@ fun ComposeImage(
     colorFilter: ColorFilter? = null,
     filterQuality: FilterQuality = DefaultFilterQuality,
     cacheQuality: CacheQuality = CacheQuality.NoCompressing,
-    onLoading: @Composable BoxScope.(progress: Float) -> Unit,
-    onError: @Composable BoxScope.() -> Unit,
+    onLoading: @Composable BoxScope.(progress: Float) -> Unit = {},
+    onError: @Composable BoxScope.(throwable: Throwable) -> Unit = {},
 ) {
     val imageTool: ImageTool = remember { ImageToolFactory.get() }
     val imageState: MutableState<ImageState> = remember { mutableStateOf(ImageState.Loading(0f)) }
 
-    Box {
-        LaunchedEffect(true) {
-            CoroutineScope(
-                Dispatchers.IO +
-                        CoroutineExceptionHandler { _, _ -> imageState.value = ImageState.Failed }
-            ).launch {
-                val data = imageTool.loadImage(
-                    url = model,
-                    cacheQuality = cacheQuality,
-                    collector = { received, total ->
+    LaunchedEffect(true) {
+        CoroutineScope(
+            Dispatchers.IO +
+                    CoroutineExceptionHandler { _, throwable ->
+                        imageState.value = ImageState.Failed(throwable)
+                    }
+        ).launch {
+            val data = imageTool.loadImage(
+                url = model,
+                cacheQuality = cacheQuality,
+                collector = { received, total ->
                     imageState.value = ImageState.Loading(received.toFloat() / total)
                 })
-                imageState.value = ImageState.Success(data)
-            }
+            imageState.value = ImageState.Success(data)
         }
+    }
 
-        when (imageState.value) {
-            is ImageState.Loading -> onLoading((imageState.value as ImageState.Loading).progress)
-            is ImageState.Failed -> onError()
+    Box(modifier = modifier) {
+        when (val state = imageState.value) {
+            is ImageState.Loading -> onLoading(state.progress)
+            is ImageState.Failed -> onError(state.throwable)
             is ImageState.Success ->
                 Image(
-                    bitmap = (imageState.value as ImageState.Success).imageBitmap,
+                    bitmap = state.imageBitmap,
                     contentDescription,
                     modifier,
                     alignment,

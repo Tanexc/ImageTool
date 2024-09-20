@@ -10,7 +10,9 @@ sealed class ImageState {
         val progress: Float
     ) : ImageState()
 
-    data object Failed : ImageState()
+    data class Failed(
+        val throwable: Throwable
+    ) : ImageState()
 
     data class Success(
         val imageBitmap: ImageBitmap

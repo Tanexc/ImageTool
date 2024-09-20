@@ -15,15 +15,11 @@ package com.tanexc.imagetool
  *
  * [Shakal] ~ 1% of quality
  */
-enum class CacheQuality {
-    NoCaching, NoCompressing, High, Medium, Low, Shakal
-}
-
-internal fun cacheQualityToInt(q: CacheQuality): Int = when (q) {
-    CacheQuality.Shakal -> 1
-    CacheQuality.Low -> 30
-    CacheQuality.Medium -> 50
-    CacheQuality.High -> 80
-    CacheQuality.NoCompressing -> 100
-    else -> 0
+enum class CacheQuality(val value: Int) {
+    NoCaching(0),
+    NoCompressing(100),
+    High(80),
+    Medium(50),
+    Low(25),
+    Shakal(1)
 }

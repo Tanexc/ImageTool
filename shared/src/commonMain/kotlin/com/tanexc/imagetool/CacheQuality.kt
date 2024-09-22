@@ -3,17 +3,17 @@ package com.tanexc.imagetool
 /**
  * CacheQuality represents cache quality option
  *
- * [NoCaching] ~ data will not be cached
+ * [NoCaching] - data will not be cached
  *
- * [NoCompressing] ~ 100% of quality
+ * [NoCompressing] - 100% of quality
  *
- * [High] ~ 80% of quality
+ * [High] - 80% of quality
  *
- * [Medium] ~ 50% of quality
+ * [Medium] - 50% of quality
  *
- * [Low] ~ 30% of quality
+ * [Low] - 30% of quality
  *
- * [Shakal] ~ 1% of quality
+ * [Shakal] - 1% of quality
  */
 enum class CacheQuality(val value: Int) {
     NoCaching(0),

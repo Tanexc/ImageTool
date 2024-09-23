@@ -59,27 +59,27 @@ At this moment available just one widget to use:
 )
 ```
 
-`model` - Url string of the image
+`model` - String URL to get image from network
 
 `contentDescription` - Description of the image
 
-`modififer` - Modifier used to adjust the layout algorithm or draw decoration content (ex. background)
+`modififer` - Modifier that will be applied to box where image lies
 
-`alignment` - Optional alignment parameter used to place the ImageBitmap in the given bounds defined by the width and height
+`alignment` - Optional alignment parameter used to place the `ImageBitmap` in the given bounds defined by the width and height
 
-`contentScale` - Optional scale parameter used to determine the aspect ratio scaling to be used if the bounds are a different size from the intrinsic size of the ImageBitmap
+`contentScale` - Represents a rule to apply to scale a source image to be inscribed into the box
 
-`alpha` - Optional opacity to be applied to the ImageBitmap when it is rendered onscreen
+`alpha` - Optional opacity to be applied to the ImageBitmap when it is rendered on screen
 
-`colorFilter` - Optional ColorFilter to apply for the ImageBitmap when it is rendered
+`colorFilter` - Optional ColorFilter to apply for the image when it is rendered
 
 `filterQuality` - Sampling algorithm applied to the bitmap when it is scaled and drawn into the destination. The default is FilterQuality. Low which scales using a bilinear sampling algorithm
 
-`cacheQuality` - CacheQuality used to set quality of cached image
+`cacheQuality` - Optional cache quality parameter used to set quality of cached image. Can be `CacheQuality.NoCaching` that says image would not be cached
 
 `onLoading` - Composable that will be displayed on loading. Receives float progress from 0.0 to 1.0
 
-`onError` - Composable that will be displayed when loading failed
+`onError` - Composable that will be displayed when loading failed. Receives `Throwable` that represents `Exception` has been caught
 
 # In future
 <ul>

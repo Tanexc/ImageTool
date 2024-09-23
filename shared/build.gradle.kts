@@ -15,7 +15,7 @@ plugins {
 }
 
 group = "io.github.tanexc"
-version = "0.0.1-alpha02"
+version = "0.0.1-alpha03"
 
 kotlin {
     androidTarget {
@@ -91,7 +91,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.tanexc",
         artifactId = "imagetool",
-        version = "0.0.1-alpha02"
+        version = "0.0.1-alpha03"
     )
 
     pom {

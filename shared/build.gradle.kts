@@ -90,7 +90,7 @@ mavenPublishing {
     coordinates(
         groupId = "io.github.tanexc",
         artifactId = "imagetool",
-        version = "0.0.1-alpha03"
+        version = "0.0.1"
     )
 
     pom {

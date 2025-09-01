@@ -9,13 +9,12 @@ plugins {
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
     id("maven-publish")
-    id("org.jreleaser") version "1.13.1"
-    id("com.vanniktech.maven.publish") version "0.28.0"
-
+    alias(libs.plugins.vanniktech.maven.publish)
+    alias(libs.plugins.jreleaser)
 }
 
 group = "io.github.tanexc"
-version = "0.0.1-alpha03"
+version = "0.0.1"
 
 kotlin {
     androidTarget {
@@ -76,7 +75,7 @@ kotlin {
 
 android {
     namespace = "io.github.tanexc"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         minSdk = 24
     }

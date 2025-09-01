@@ -3,6 +3,7 @@ package com.tanexc.imagetool
 import androidx.compose.ui.graphics.ImageBitmap
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
+import io.ktor.client.content.ProgressListener
 import io.ktor.client.plugins.onDownload
 import io.ktor.client.request.get
 
@@ -10,7 +11,6 @@ import io.ktor.client.request.get
  */
 internal class ImageTool {
     private val httpClient = HttpClient()
-
 
     /** @return [androidx.compose.ui.graphics.ImageBitmap]
      *
@@ -29,7 +29,15 @@ internal class ImageTool {
             return data.toImageBitmap()
         } else {
             val response = httpClient.get(url) {
-                onDownload(collector)
+                onDownload(object : ProgressListener {
+                    override suspend fun onProgress(
+                        bytesSentTotal: Long,
+                        contentLength: Long?
+                    ) {
+                        collector?.invoke(bytesSentTotal, contentLength ?: bytesSentTotal)
+                    }
+
+                })
             }
             data = response.body<ByteArray>()
             if (cacheQuality != CacheQuality.NoCaching) {

@@ -1,7 +1,6 @@
 package com.tanexc.imagetool
 
 import androidx.compose.ui.graphics.ImageBitmap
-import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.content.ProgressListener
 import io.ktor.client.plugins.onDownload
@@ -10,7 +9,7 @@ import io.ktor.client.request.get
 /**ImageTool used in widgets to access loading and caching feature
  */
 internal class ImageTool {
-    private val httpClient = HttpClient()
+    private val httpClient = PlatformHttpClient()
 
     /** @return [androidx.compose.ui.graphics.ImageBitmap]
      *
